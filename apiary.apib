@@ -1,0 +1,114 @@
+FORMAT: 1A
+
+# majestic thai
+
+API for majestic thai ordering and kitchen applications
+
+## Menu [/dishes]
+### List All Dishes [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "58181023feab6500036999ec",
+                "name": "Curry Catfish",
+                "price": "15.99",
+                "details": "Deep fried fillet catfish boneless with red curry in coconut milk, eggplants, peppers and basil leaves"
+            }, {
+                "id": "58181023feab6500036999eb",
+                "name": "Curry Mix Seafoods",
+                "price": "19.99",
+                "details": "Shrimps, squids and mussels with red curry, coconut milk, eggplant, tomatoes, pineapple, pepper and basil leaves"
+            }, {
+                "id": "581800eafeab6500036999ea",
+                "name": "Curry Duck",
+                "price": "21.99",
+                "details": "Crispy roasted duck simmered in red curry chili paste, eggplant, coconut milk, tomatoes, pineapple, pepper and basil leaves. Prepared cook by medium spicy or more spicy"
+            }, {
+                "id": "581800eafeab6500036999e9",
+                "name": "Ginger Salmon",
+                "price": "17.99",
+                "details": "Grill salmon with stir fried onions, carrots, celery, mushroom, fresh garlic and ginger sauce"
+            }
+        ]
+        
+        
+## Dish [/dishes/{id}]
+
++ Parameters
+    + id (number) - ID of the dish in the form of an integer
+
+### View A Dish [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": "581800eafeab6500036999e9",
+            "name": "Ginger Salmon",
+            "price": "17.99",
+            "details": "Grill salmon with stir fried onions, carrots, celery, mushroom, fresh garlic and ginger sauce"
+        }
+
+## Orders [/orders]
+### List All Orders [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "5818dd2d9ea43c0003388fcc",
+                "username": "sarah44",
+                "total": "33.98",
+                "time": "1478003327506",
+                "dishes": [ 
+                    {
+                        "price": "17.99",
+                        "name": "Ginger Salmon"
+                    }, {
+                        "price": "15.99",
+                        "name": "Curry Catfish"
+                    }
+                ]
+            }, 
+            {
+                "id": "5818d0d09ea43c0003388fcb",
+                "username": "bobsmith",
+                "total": "41.98",
+                "time": "1478003322848",
+                "dishes": [
+                    {
+                        "price": "21.99",
+                        "name": "Curry Duck"
+                    }, {
+                        "price": "19.99",
+                        "name": "Curry Mix Seafoods"
+                    }
+                ]
+            }
+        ]
+        
+## Order [/order/{id}]
+
++ Parameters
+    + id (number) - ID of the order in the form of an integer
+
+### View An Order [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": "5818dd2d9ea43c0003388fcc",
+            "username": "sarah44",
+            "total": "33.98",
+            "time": "1478003327506",
+            "dishes": [ 
+                {
+                    "price": "17.99",
+                    "name": "Ginger Salmon"
+                }, {
+                    "price": "15.99",
+                    "name": "Curry Catfish"
+                }
+            ]
+        }
